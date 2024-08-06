@@ -5,7 +5,6 @@ def welcome():
     user_name = str(input("- What is your name: \n"))
     print(f"Welcome {user_name}!\nIn this game, you have three tries to guess a number 1-5.\nIf you get it wrong, the number changes\nYou need to guess five numbers correctly to win!")
     thegame(rounds, wins)
-
 def thegame(rounds, wins):
     game = True
     guesses = 3

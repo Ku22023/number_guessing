@@ -19,16 +19,16 @@ def game(word):
     active = True
     while active == True:
         user_input = str(input("Type in a or word: "))
-        if len(user_input) >= 2:
+        if len(user_input) >= 2: #checks if its a letter or word
             print("word")
 
         else:
             print("letter")
-            if user_input in set(letters):
+            if user_input in set(letters): #checks if letter is right
                 print("correct!!")
-                while user_input in set(letters):
+                while user_input in set(letters): #removes letter from guesses so they dont accidfently guess it again
                     letters.remove(user_input)
-                print(letters)
+                print(letters) #testing, delete later
             else:
                 print("wrobg!!!")
 

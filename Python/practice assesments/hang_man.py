@@ -14,23 +14,45 @@ def ran_word():
 
 def game(word):
     lives = 6
-    letters = list(word) 
+    letters = list(word)
+    used_name = []
+    guess = []
+    for i in letters:
+        guess.append(" __ ")
+    print(guess)
     print(letters) #shows the list of letters for the hangman
     active = True
     while active == True:
         user_input = str(input("Type in a or word: "))
-        if len(user_input) >= 2: #checks if its a letter or word
-            print("word")
-
+        if user_input in set(used_name):
+            print ("you already guessed that")
+    
         else:
-            print("letter")
-            if user_input in set(letters): #checks if letter is right
-                print("correct!!")
-                while user_input in set(letters): #removes letter from guesses so they dont accidfently guess it again
-                    letters.remove(user_input)
-                print(letters) #testing, delete later
+            used_name.append(user_input)
+            if len(user_input) >= 2: #checks if its a letter or word
+                print("word")
+
             else:
-                print("wrobg!!!")
+                print("letter")
+                if user_input in set(letters): #checks if letter is right
+                    print("correct!!")
+                    while user_input in set(letters): #removes letter from guesses so they dont accidfently guess it again
+                        letters.remove(user_input)
+                    print(letters) #testing, delete later
+                else:
+                    print("wrobg!!!")
 
 word = ran_word()
 game(word)
+
+
+
+# |_______
+# |      |
+#        o 
+#       /|\
+#       / \
+# |____________
+#
+#
+#

@@ -17,8 +17,9 @@ def game(word):
     letters = list(word)
     used_name = []
     guess = []
+    guessed_letter = []
     for i in letters:
-        guess.append(" __ ")
+        guess.append(" _ ")
     print(guess)
     print(letters) #shows the list of letters for the hangman
     active = True
@@ -36,8 +37,14 @@ def game(word):
                 print("letter")
                 if user_input in set(letters): #checks if letter is right
                     print("correct!!")
+                    space = (letters.index(user_input))
+                    print(guess)
                     while user_input in set(letters): #removes letter from guesses so they dont accidfently guess it again
                         letters.remove(user_input)
+                        guess.insert(space,user_input)
+                        
+                        
+                        
                     print(letters) #testing, delete later
                 else:
                     print("wrobg!!!")

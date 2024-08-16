@@ -17,7 +17,7 @@ def game(word):
     letters = list(word)
     used_name = []
     guess = []
-    guessed_letter = []
+    guessed_stuff = []
     for i in letters:
         guess.append(" _ ")
     print(guess)
@@ -27,32 +27,21 @@ def game(word):
         user_input = str(input("Type in a or word: "))
         if user_input in set(used_name):
             print ("you already guessed that")
-    
         else:
             used_name.append(user_input)
-            if len(user_input) >= 2: #checks if its a letter or word
-                print("word")
-
-            else:
-                print("letter")
+            if len(user_input) == 1:
+                guessed_stuff.append(user_input)
+                print("letters n stuff: ",guessed_stuff)
                 if user_input in set(letters): #checks if letter is right
                     print("correct!!")
                     space = (letters.index(user_input))
+                    guess[space] = user_input
                     print(guess)
-                    while user_input in set(letters): #removes letter from guesses so they dont accidfently guess it again
-                        letters.remove(user_input)
-                        guess.insert(space,user_input)
-                        
-                        
-                        
-                    print(letters) #testing, delete later
                 else:
-                    print("wrobg!!!")
+                    print("wrong!!!")
 
 word = ran_word()
 game(word)
-
-
 
 # |_______
 # |      |

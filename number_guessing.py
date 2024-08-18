@@ -11,8 +11,13 @@ def thegame(wins, guesses, number):
     game = True
     print(number)
     while game == True:
-        if guesses >= 1:
-            user_guess = int(input(f"\n\n\nWins: {wins}\nGuess a number between 1 and 5!\nYou have {guesses} guesse(s) left!\n")) 
+        if guesses >= 1:            
+            user_guess = int(input(f"\n\n\nWins: {wins}\nGuess a number between 1 and 5!\nYou have {guesses} guesse(s) left!\n"))
+            try:
+                user_guess + 1
+            except ValueError:
+                print("An error occured.")
+                thegame(wins,guesses,number)
             if user_guess == number:
                 print(f"Congratulations! You got it!")
                 if wins != 4:
@@ -22,11 +27,16 @@ def thegame(wins, guesses, number):
                 else:
                     print("You have beaten the game! Congrats!!")
                     game = False
-                    welcome()
+                    user_guess = str(input("Type anything to play again. Type exit to exit!"))
+                    if user_guess != "exit":
+                        welcome()
+                    else:
+                        exit()
             else:
                 guesses -= 1
                 print(f"Wrong Number Please try again!")
                 thegame(wins, guesses, number)
+
         else:
             print("Round lost! New number generated!")
             guesses = 3

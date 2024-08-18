@@ -1,0 +1,52 @@
+import random
+
+def welcome():
+    print("\n----- Number Guessing Game ------\n")
+    user_name = str(input("- What is your name: \n"))
+    user_age = int(input("How old are you: "))
+    if user_age <= 8 and user_age >= 5:
+        print("You are in the right age range!")
+    else:
+        print("You're too old or young to play, but that's alright")
+    print(f"Welcome {user_name}!\nIn this game, you have three tries to guess\
+ a number 1-5.\nIf you get it wrong, the number changes\nYou need to \
+guess five numbers correctly to win!")
+    number = random.randrange(1,5)
+    thegame(wins, guesses,number)
+
+def thegame(wins, guesses, number):
+    game = True
+    while game == True:
+        if guesses >= 1:
+            try:
+                user_guess = int(input(f"\n\n\nWins: {wins}\nGuess a number\
+ between 1 and 5!\nYou have {guesses} guesse(s) left!\n")) 
+                user_guess + 1
+                if user_guess == number: #if the guess is correct
+                    print(f"Congratulations! You got it!")
+                    if wins != 4:
+                        wins += 1
+                        number = random.randrange(1,5) #makes a new number
+                        thegame(wins,guesses,number)
+                    else:
+                        print("You have beaten the game! Congrats!!")
+                        game = False
+                        welcome() #restarts the game when wins = 5
+                else:
+                    guesses -= 1
+                    print(f"Wrong Number Please try again!")
+                    thegame(wins, guesses, number)
+            except ValueError:
+                print("Error: Value must be an integer!")
+                thegame(wins,guesses,number)
+        else:
+            print("Round lost! New number generated!")
+            guesses = 3
+            game = False
+            random.randrange (1,5)
+            thegame(wins,guesses,number) #restarts function when there is new 
+#           code
+
+wins = 0
+guesses = 3
+welcome()

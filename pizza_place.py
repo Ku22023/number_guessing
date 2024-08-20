@@ -18,10 +18,13 @@ def backst():
 def menu():
     #You should display a menu here! Make it look pretty!
     print("----------- MENU -----------\n")
-    print("[ #1. Mo's Special --- $16.30 ]\n - Random toppings; You get a surprise!\n")
+    print("[ #1. Mo's Special --- $16.30 ]\n - Random toppings; You get\
+     a surprise!\n")
     print("[ #2. Peperroni --- $12.50 ]\n - Classic Peperroni Pizza\n")
-    print("[ #3. Cheese --- $9.99 ]\n - Classic Pizza with no toppings\n")
-    print("[ #4. Skibidi Slicers --- $19.99 ]\n - a Pizza with all the toppings!\n")
+    print("[ #3. Cheese --- $9.99 ]\n - Classic Pizza with no\
+     toppings\n")
+    print("[ #4. Skibidi Slicers --- $19.99 ]\n - a Pizza with all the\
+     toppings!\n")
     print("[ #5. Meat Lovers --- $14.99 ]\n - Lots of meaty mo's\n")
     print("[ #6. Vegetarian --- $12.99 ]\n - Vegetarian Option")
     backst()
@@ -57,7 +60,9 @@ def vieworder():
 def orders():
     user_exit_a = False
     while user_exit_a != True:
-        print("\n----- Choose order Option: -----\n- 1. View order \n- 2. Add item(s) \n- 3. Remove item(s)\n- 4. Back to Main Menu")
+        print("\n----- Choose order Option: -----\n- 1. View order\
+             \n- 2. Add item(s) \n- 3. Remove item(s)\n- 4. Back to\
+              Main Menu")
         y = int(input("Select an option: "))
         if y == 1:
             vieworder()
@@ -68,10 +73,12 @@ def orders():
             while x != -1:
                 if x != -1:
                     if x >= 1 and x <= 6:
-                        x = int(input("Enter which Pizzas you would like to order. Type -1 to finish: "))
+                        x = int(input("Enter which Pizzas you would\
+                             like to order. Type -1 to finish: "))
                         order.append(x)
                     else:
-                        print("Error: Invalid Item. Please enter a number 1-6")
+                        print("Error: Invalid Item. Please enter a\
+                             number 1-6")
                         order.pop()
                         orders()
             order.pop()
@@ -82,7 +89,9 @@ def orders():
             x = 0
             while x != -1:
                 item = "error"
-                x = int(input("\nEnter the place of the item you want to remove, from the order list. Type -1 when you are finished: "))
+                x = int(input("\nEnter the place of the item you want\
+                     to remove, from the order list. Type -1 when you\
+                     are finished: "))
                 print(x)
                 if x != -1:
                     x -= 1
@@ -128,7 +137,8 @@ def total():
 def start():
     user_exit = False
     while user_exit != True:
-        print("\n--------Start-------\n- 1. Menu \n- 2. Order \n- 3. Calculate Total \n- 4. Exit\n--------------------")
+        print("\n--------Start-------\n- 1. Menu \n- 2. Order \n- 3.\
+             Calculate Total \n- 4. Exit\n--------------------")
         user_input = int(input("Choose what you want: \n"))
         if user_input == 1:
             menu()

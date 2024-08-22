@@ -4,6 +4,7 @@ menu = False
 user_balance = 0
 transactions = [] #Transaction list to show when the user requests \
 #it.
+prevent_none = True
 
 def check_balance():
     """
@@ -19,22 +20,23 @@ def withdraw(user_balance):
     it removes money from the user_balance variable and updates to for 
     a "withdrawal".
     """
-    try: #Without this, if the user_balance is 0, it would be set to \
-        #'None', which breaks the code.
-        user_balance + 1
-    except:
-        user_balance = 0 #Sets user_balance to '0', instead of 'None'
     print("---WITHDRAW---")
     try: #Ensures the user enters in a number
         user_input = float(input("Enter how much you would like to "\
-            "withdraw: ")) #A float because it can handle decimals
+            "withdraw: $")) #A float because it can handle decimals
         if user_input < 0: #Prevents the user from trying to \
             #withdraw less than $0.
             print("\nError: You cannot withdraw less then $0!")
         else:
-            if user_input > user_balance: #Prevents the user from \
+            if user_balance == 0:
+                print("Error: You do not have enough to withdraw!")
+                user_balance = 0 #prevents user_balance from being \
+                #'None'
+                return user_balance  
+            elif user_input > user_balance: #Prevents the user from \
                 #withdrawing more than they have in their balance.
                 print("Error: You do not have enough to withdraw!")
+                return user_balance
             else:
                 user_balance -= user_input
                 print(f"Withdrawn ${user_input} from your account!\n"
@@ -54,7 +56,7 @@ def deposit(user_balance):
     print("---DEPOSIT---")
     try: #Prevents the user from entering a letter.
         user_input = float(input("Enter how much you would like to "\
-            "deposit: "))
+            "deposit: $"))
         if user_input < 0: #Prevents the user from entering \
             #negative money.
             print("\nError: You cannot deposit less than $0!")
@@ -144,3 +146,10 @@ while menu == True: #To always open the menu if no code is running.
         menu = back(menu)
     except: #Prevents the user from entering a letter
         print("Error: You must enter a number!")
+
+while prevent_none == True:
+    try: #Without this, if the user_balance is 0, it would be set to \
+        #'None', which breaks the code.
+        user_balance + 1
+    except:
+        user_balance = 0 #Sets user_balance to '0', instead of 'None'

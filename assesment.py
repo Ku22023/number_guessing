@@ -39,7 +39,7 @@ def withdraw(user_balance):
                 return user_balance
             else:
                 user_balance -= user_input
-                print(f"Withdrawn ${user_input} from your account!\n"
+                print(f"Withdrew ${user_input} from your account!\n"
                 f"Current Balance: {user_balance}")
                 transactions.append(f"Withdrew ${user_input}") #Adds \
                 #transaction to the list to show later, for the log.
@@ -121,7 +121,7 @@ while pin_attempts > 0: #Asks the pin until they have no more tries.
             #it asks again until they have no more tries left.
             pin_attempts -= 1
     except: #Prevents the user from typing in a letter.
-        print("Error: You must enter a number!")
+            print("Error: You must enter a number!")
 
 while menu == True: #To always open the menu if no code is running.
     try: #Prevents the user from typing in a letter.

@@ -44,7 +44,8 @@ def withdraw(user_balance):
                 transactions.append(f"Withdrew ${user_input}") #Adds \
                 #transaction to the list to show later, for the log.
                 return user_balance
-    except: #Prevents the user from entering anything but a number.
+    except ValueError: #Prevents the user from entering anything but a \
+        #number.
         print("\nError: Please enter a number!")
 
 def deposit(user_balance):
@@ -67,8 +68,8 @@ def deposit(user_balance):
             transactions.append(f"Deposited ${user_input}") #Adds the \
             #transaction to the transaction list, to show later.
             return user_balance
-    except: #Runs the code again to stop it erroring out, if the user \
-        #enters a letter.
+    except ValueError: #Runs the code again to stop it erroring out, if\
+        #the user enters a letter.
         print("\nError: Please enter a number!")
 
 def transaction_history():
@@ -98,8 +99,8 @@ def back(menu):
                 #return
                 menu = True
                 return menu
-        except: #Asks the user again, if the user doesn't enter \
-            #-1 or a letter.
+        except ValueError: #Asks the user again, if the user doesn't \
+            #enter -1 or if the user enters a letter.
             print("Error: Please type -1!")
 
 
@@ -125,9 +126,9 @@ while pin_attempts > 0: #Asks the pin until they have no more tries.
 
 while menu == True: #To always open the menu if no code is running.
     try: #Prevents the user from typing in a letter.
-        user_input = int(input("\nChoose your option:\n-1. Check Balance"
-        "\n-2. Withdraw \n-3. Deposit \n-4. Transaction History \n-5. Exit"
-        "\n"))
+        user_input = int(input("\nChoose your option:\n-1. Check " \
+        "Balance \n-2. Withdraw \n-3. Deposit \n-4. Transaction" \
+        " History \n-5. Exit\n"))
         if user_input == 1:
             user_balance = check_balance()
             print(f"Current Balance: ${user_balance}")
@@ -138,18 +139,18 @@ while menu == True: #To always open the menu if no code is running.
         elif user_input == 4:
             transaction_history()
         elif user_input == 5:
+            menu = False
             print("Goodbye!")
             exit()
         else: #Runs the code again if the number is not a valid option
             print(f"\nError: {user_input} is not a valid option!\n")
+        try: #Without this, if the user_balance is 0, it would be set \
+        #to 'None', which breaks the code.
+            user_balance + 1
+        except:
+            user_balance = 0 #Sets user_balance to '0', instead of 'None'
         menu = False #Make the menu close after input
         menu = back(menu)
-    except: #Prevents the user from entering a letter
+    except ValueError: #Prevents the user from entering a letter
         print("Error: You must enter a number!")
 
-while prevent_none == True:
-    try: #Without this, if the user_balance is 0, it would be set to \
-        #'None', which breaks the code.
-        user_balance + 1
-    except:
-        user_balance = 0 #Sets user_balance to '0', instead of 'None'

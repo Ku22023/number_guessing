@@ -153,4 +153,3 @@ while menu == True: #To always open the menu if no code is running.
         menu = back(menu)
     except ValueError: #Prevents the user from entering a letter
         print("Error: You must enter a number!")
-

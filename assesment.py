@@ -5,14 +5,6 @@ user_balance = 0
 transactions = [] #Transaction list to show when the user requests \
 #it.
 
-def check_balance():
-    """
-    Checks the amount of money in the user_balance variable, to show
-    the user how much the variable is.
-    """
-    print("\n---BALANCE---")
-    return user_balance
-
 def withdraw(user_balance):
     """
     Checks the amount of money in user_variable, and if there is enough,
@@ -129,8 +121,10 @@ while menu == True: #To always open the menu if no code is running.
         "Balance \n-2. Withdraw \n-3. Deposit \n-4. Transaction" \
         " History \n-5. Exit\n"))
         if user_input == 1:
-            user_balance = check_balance()
-            print(f"Current Balance: ${user_balance}")
+            print("\n---BALANCE---")
+            print(f"Current Balance: ${user_balance}") #Shows the  \
+            #user_balance, because a function for this would be \
+            #redundant.
         elif user_input == 2:
             user_balance = withdraw(user_balance)
         elif user_input == 3:

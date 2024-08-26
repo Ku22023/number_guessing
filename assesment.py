@@ -4,7 +4,6 @@ menu = False
 user_balance = 0
 transactions = [] #Transaction list to show when the user requests \
 #it.
-prevent_none = True
 
 def check_balance():
     """
@@ -148,9 +147,9 @@ while menu == True: #To always open the menu if no code is running.
         #to 'None', which breaks the code.
             user_balance + 1
         except:
-            user_balance = 0 #Sets user_balance to '0', instead of 'None'
+            user_balance = 0 #Sets user_balance to '0', instead of \
+            #'None', to make sure the math still works.
         menu = False #Make the menu close after input
         menu = back(menu)
     except ValueError: #Prevents the user from entering a letter
         print("Error: You must enter a number!")
-

@@ -18,12 +18,14 @@ def withdraw(user_balance):
         if user_input < 0: #Prevents the user from trying to \
             #withdraw less than $0.
             print("\nError: You cannot withdraw less then $0!")
+            return user_balance #Makes sure the balance isn't reset\
+            #to 0
         else:
             if user_balance == 0:
                 print("Error: You do not have enough to withdraw!")
                 user_balance = 0 #prevents user_balance from being \
                 #'None'
-                return user_balance  
+                return user_balance 
             elif user_input > user_balance: #Prevents the user from \
                 #withdrawing more than they have in their balance.
                 print("Error: You do not have enough to withdraw!")
@@ -38,6 +40,7 @@ def withdraw(user_balance):
     except ValueError: #Prevents the user from entering anything but a \
         #number.
         print("\nError: Please enter a number!")
+        return user_balance #Makes sure the balance isnt reset to 0
 
 def deposit(user_balance):
     """
@@ -52,6 +55,8 @@ def deposit(user_balance):
         if user_input < 0: #Prevents the user from entering \
             #negative money.
             print("\nError: You cannot deposit less than $0!")
+            return user_balance #Makes sure the user_balance isn't \
+            #reset to 0.
         else:
             user_balance += user_input
             print(f"Deposited ${user_input} into your account!\n"
@@ -62,6 +67,7 @@ def deposit(user_balance):
     except ValueError: #Runs the code again to stop it erroring out, if\
         #the user enters a letter.
         print("\nError: Please enter a number!")
+        return user_balance #Makes sure the balance isn't reset to 0
 
 def transaction_history():
     """

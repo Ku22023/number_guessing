@@ -41,6 +41,9 @@ def withdraw(user_balance):
         #number.
         print("\nError: Please enter a number!")
         return user_balance #Makes sure the balance isnt reset to 0
+    except:
+        print("An error occured.") #Catches any other error
+        return user_balance
 
 def deposit(user_balance):
     """
@@ -68,6 +71,9 @@ def deposit(user_balance):
         #the user enters a letter.
         print("\nError: Please enter a number!")
         return user_balance #Makes sure the balance isn't reset to 0
+    except:
+        print("An error occured") #Catches any other errors
+        return user_balance
 
 def transaction_history():
     """
@@ -99,6 +105,8 @@ def back(menu):
         except ValueError: #Asks the user again, if the user doesn't \
             #enter -1 or if the user enters a letter.
             print("Error: Please type -1!")
+        except:
+            print("An error occured.") #Catches any other error
 
 
 
@@ -153,3 +161,5 @@ while menu == True: #To always open the menu if no code is running.
         menu = back(menu)
     except ValueError: #Prevents the user from entering a letter
         print("Error: You must enter a number!")
+    except:
+        print("An unknown error occured") #Catches any other error

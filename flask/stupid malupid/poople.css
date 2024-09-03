@@ -1,0 +1,12 @@
+h1 {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 250px;
+    padding: 150px;
+    width: 80%;
+    color: red;
+    background-color: rgb(9, 0, 128);
+    border: 5px solid red;
+    text-align: center;
+    border-radius: 25px;
+}

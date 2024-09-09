@@ -1,0 +1,22 @@
+h1 {
+    color: blue;
+}
+
+.form1 {
+    color: blueviolet;
+}
+
+body {
+    background-image: url("bunnymo.jpg");
+}
+
+input {
+    width: 50%;
+}
+
+.div1 {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    color: blue;
+}
